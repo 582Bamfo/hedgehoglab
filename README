@@ -1,0 +1,20 @@
+Deploying Docker containers on Amazon ECS (container orchestration)
+
+Cloud provider is AWS.
+
+Note: everything need to be codified, versioned controlled and automated
+
+IAAC ,terraform was used to provisioned the ECS infrastructure. 
+
+Ansible was used for configuration management of the ECS server
+
+All the codes/scripts were versioned controlled using git/github
+
+CICD pipeline(PAAC) was implemented to automate the all the stages using jenkins with various plugin including sonarQube, docker/docker-compose, amazon ecr, dockerhub, git,Ecs server.
+
+There was continues development, intergration, testing , delivery and monitoring of the code/application.
+
+The application code  were stored in SCM -git/github. Jenkins pull the codes and performed code analysis/ test using sonarqube.
+After passing the quality gate the codes were build by docker. 
+The build result/artifact was store in AWS ecr. After continues testing the artifact was delivered to AWS plafform using Amazon ECS as container deployment, scaling and management. 
+Amazon cloudwatch was used continues monitoring
