@@ -1,0 +1,31 @@
+version: '3'
+services:
+  docker-react-app:
+    image: react-image
+    ports:
+      - "3000:3000"
+    volumes:
+      -  bamfomydb:/var/lib/react  
+
+  mysql:
+    image: hegdehog-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      -  bamfomydb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD="mypass"  
+
+  middleware-python:
+    image: python-image1
+    ports:
+      - "200:8000"
+    volumes:
+      -  bamfomydb:/var/lib/python  
+
+  
+    
+volumes:
+      bamfomydb: {} 
+    
+    
